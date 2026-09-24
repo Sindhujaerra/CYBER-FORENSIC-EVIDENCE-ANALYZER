@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Suchiiiiii 🖤</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:radial-gradient(circle at top,#1b0f1a,#000);
+color:white;
+overflow:hidden;
+text-align:center;
+">
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FLOATING HEARTS -->
+<script>
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.innerHTML="🖤";
+  h.style.position="fixed";
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="-20px";
+  h.style.fontSize=(14+Math.random()*20)+"px";
+  h.style.opacity="0.6";
+  h.style.transition="7s linear";
+  document.body.appendChild(h);
+  setTimeout(()=>h.style.transform="translateY(-120vh)",100);
+  setTimeout(()=>h.remove(),7000);
+},450);
+</script>
+
+<!-- PAGE 1 -->
+<div id="p1" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1 style="font-size:2.6rem;">
+    Hey <span style="color:#ff4e8a;text-shadow:0 0 15px #ff4e8a;animation:glow 2s infinite alternate;">Suchiii</span> 🖤
+  </h1>
+
+  <p style="font-size:1.2rem;">Will you be my Sundarii? 😌</p>
+
+  <div style="position:relative;margin-top:10px;">
+    <button onclick="yesClick()" style="padding:12px 30px;border-radius:30px;border:none;font-size:1.1rem;background:#ff2e63;color:white;cursor:pointer;">YES 💍</button>
+    <button id="noBtn" style="padding:12px 30px;border-radius:30px;border:none;font-size:1.1rem;background:white;color:#ff2e63;cursor:pointer;position:absolute;left:120px;">NO 🙈</button>
+  </div>
+
+  <p id="counter" style="margin-top:25px;font-size:1rem;opacity:0.8;"></p>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" style="display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1>You chose us 🖤</h1>
+  <p style="max-width:650px;">
+    Let’s travel cities, chase sunsets, get lost on roads,  
+    and turn moments into memories — together.
+  </p>
+  <button onclick="next(2,3)" style="padding:12px 30px;border-radius:30px;border:none;background:#ff2e63;color:white;">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="p3" style="display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1>Our Memoriess 📸</h1>
+
+  <div style="width:100%;overflow:hidden;margin:30px 0;">
+    <div id="train" style="display:flex;width:max-content;">
+      <img src="pic1.jpg"><img src="pic2.JPG"><img src="pic3.jpg"><img src="pic4.jpg"><img src="pic5.jpg">
+      <img src="pic1.jpg"><img src="pic2.JPG"><img src="pic3.jpg"><img src="pic4.jpg"><img src="pic5.jpg">
+    </div>
+  </div>
+
+  <p>Many places. Many photos. One love 🖤</p>
+  <button onclick="next(3,4)" style="padding:12px 30px;border-radius:30px;border:none;background:#ff2e63;color:white;">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="p4" style="display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1>Our First Valentine 🖤</h1>
+  <p>
+    Let’s celebrate our first Valentine’s Day,  
+    and promise to celebrate many more —  
+    still choosing each other, always.
+  </p>
+  <button onclick="next(4,5)" style="padding:12px 30px;border-radius:30px;border:none;background:#ff2e63;color:white;">Continue</button>
+</div>
+
+<!-- PAGE 5 PASSWORD -->
+<div id="p5" style="display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1>Only for you 🖤</h1>
+  <p>Some things are meant for one heart… and one date.</p>
+
+  <input id="pass" placeholder="DD-MM-YYYY"
+    style="padding:12px;border-radius:20px;border:none;text-align:center;font-size:1rem;">
+
+  <button onclick="checkPass()" style="margin-top:15px;padding:12px 30px;border-radius:30px;border:none;background:#ff2e63;color:white;">
+    Unlock 🔓
+  </button>
+
+  <p id="wrong" style="color:#ff6b81;margin-top:10px;"></p>
+</div>
+
+<!-- PAGE 6 SECRET -->
+<div id="p6" style="display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+  <h1>Suchiii 🖤</h1>
+  <p style="max-width:650px;">
+    If love had a password… it was always this date.  
+    <br><br>
+    I don’t promise perfect days.  
+    I promise real ones — fights, silence, laughter, chaos.  
+    I choose it all… as long as it’s with you.
+  </p>
+  <p id="midnight"></p>
+</div>
+
+<style>
+@keyframes glow{from{text-shadow:0 0 10px #ff4e8a;}to{text-shadow:0 0 25px #ff9ac7;}}
+#train img{height:260px;width:auto;margin-right:20px;border-radius:15px;object-fit:contain;background:black;}
+</style>
+
+<script>
+/* NO BUTTON */
+const noBtn=document.getElementById("noBtn");
+noBtn.onmouseover=()=>{
+  noBtn.style.left=Math.random()*200-100+"px";
+  noBtn.style.top=Math.random()*100-50+"px";
+};
+
+/* MUSIC + NAV */
+const music=document.getElementById("music");
+function yesClick(){music.play();next(1,2);}
+function next(a,b){
+  document.getElementById("p"+a).style.display="none";
+  document.getElementById("p"+b).style.display="flex";
+}
+
+/* DATE COUNTER */
+const start=new Date("2024-10-14");
+const days=Math.floor((new Date()-start)/(1000*60*60*24));
+document.getElementById("counter").innerText=`Together for ${days} days 🖤`;
+
+/* PHOTO TRAIN */
+let pos=0;
+const train=document.getElementById("train");
+setInterval(()=>{
+  pos-=0.3;
+  train.style.transform=`translateX(${pos}px)`;
+  if(Math.abs(pos)>train.scrollWidth/2)pos=0;
+},20);
+
+/* PASSWORD */
+function checkPass(){
+  if(document.getElementById("pass").value==="14-10-2024"){
+    next(5,6);
+  }else{
+    document.getElementById("wrong").innerText="Wrong date… try again 😌";
+  }
+}
+
+/* MIDNIGHT */
+document.getElementById("midnight").innerText=
+(new Date().getHours()===0)
+?"🌙 Midnight hit… and my love chose you forever 🖤"
+:"🌙 When midnight comes… remember this moment 🖤";
+</script>
+
+</body>
+</html>
